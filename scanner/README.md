@@ -1,6 +1,7 @@
 # Scanner
 
 해당 폴더는 Lexical Analayzer인 Scanner의 구현체가 있는 폴더입니다.
+
 Scanner는 Source code를 읽고 해당 Source code를 Stream of token으로 분류합니다.
 
 ### 1. 프로젝트 실행 방식은 다음과 같습니다.
