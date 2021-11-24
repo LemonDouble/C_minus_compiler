@@ -1,0 +1,156 @@
+[STMT:DECLARATION_LIST]
+	[STMT:VAR_DECLAR], attr -> INT,x,ARRAY
+		[EXP:NUMBER], attr -> 10
+	[STMT:FUN_DECLAR], attr -> INT,minloc
+		[EXP:PARAMS]
+			[EXP:PARAMS_LIST]
+				[EXP:PARAM], attr -> INT,a,ARRAY
+				[EXP:PARAM], attr -> INT,low,NOTARRAY
+				[EXP:PARAM], attr -> INT,high,NOTARRAY
+		[STMT:COMPOUND_STMT]
+			[STMT:LOCAL_DECLAR]
+				[STMT:VAR_DECLAR], attr -> INT,i
+				[STMT:VAR_DECLAR], attr -> INT,x
+				[STMT:VAR_DECLAR], attr -> INT,k
+			[STMT:STMT_LIST]
+				[EXP:EXPRESSION]
+					[EXP:VAR], attr -> k
+					[EXP:VAR], attr -> low
+				[EXP:EXPRESSION]
+					[EXP:VAR], attr -> x
+					[EXP:VAR], attr -> a
+						[EXP:VAR], attr -> low
+				[EXP:EXPRESSION]
+					[EXP:VAR], attr -> i
+					[EXP:ADDITIVE_EXPRESSION]
+						[EXP:VAR], attr -> low
+						[EXP:ADDOP], attr -> PLUS
+						[EXP:NUMBER], attr -> 1
+				[STMT:ITERATION_STMT]
+					[EXP:SIMPLE_EXPRESSION], attr -> LT
+						[EXP:VAR], attr -> i
+						[EXP:VAR], attr -> high
+					[STMT:COMPOUND_STMT]
+						[STMT:STMT_LIST]
+							[STMT:SELECTION_STMT]
+								[EXP:SIMPLE_EXPRESSION], attr -> LT
+									[EXP:VAR], attr -> a
+										[EXP:VAR], attr -> i
+									[EXP:VAR], attr -> x
+								[STMT:COMPOUND_STMT]
+									[STMT:STMT_LIST]
+										[EXP:EXPRESSION]
+											[EXP:VAR], attr -> x
+											[EXP:VAR], attr -> a
+												[EXP:VAR], attr -> i
+										[EXP:EXPRESSION]
+											[EXP:VAR], attr -> k
+											[EXP:VAR], attr -> i
+							[EXP:EXPRESSION]
+								[EXP:VAR], attr -> i
+								[EXP:ADDITIVE_EXPRESSION]
+									[EXP:VAR], attr -> i
+									[EXP:ADDOP], attr -> PLUS
+									[EXP:NUMBER], attr -> 1
+				[STMT:RETURN_STMT]
+					[EXP:VAR], attr -> k
+	[STMT:FUN_DECLAR], attr -> VOID,sort
+		[EXP:PARAMS]
+			[EXP:PARAMS_LIST]
+				[EXP:PARAM], attr -> INT,a,ARRAY
+				[EXP:PARAM], attr -> INT,low,NOTARRAY
+				[EXP:PARAM], attr -> INT,high,NOTARRAY
+		[STMT:COMPOUND_STMT]
+			[STMT:LOCAL_DECLAR]
+				[STMT:VAR_DECLAR], attr -> INT,i
+				[STMT:VAR_DECLAR], attr -> INT,k
+			[STMT:STMT_LIST]
+				[EXP:EXPRESSION]
+					[EXP:VAR], attr -> i
+					[EXP:VAR], attr -> low
+				[STMT:ITERATION_STMT]
+					[EXP:SIMPLE_EXPRESSION], attr -> LT
+						[EXP:VAR], attr -> i
+						[EXP:ADDITIVE_EXPRESSION]
+							[EXP:VAR], attr -> high
+							[EXP:ADDOP], attr -> MINUS
+							[EXP:NUMBER], attr -> 1
+					[STMT:COMPOUND_STMT]
+						[STMT:LOCAL_DECLAR]
+							[STMT:VAR_DECLAR], attr -> INT,t
+						[STMT:STMT_LIST]
+							[EXP:EXPRESSION]
+								[EXP:VAR], attr -> k
+								[EXP:CALL], attr -> minloc
+									[EXP:ARG_LIST]
+										[EXP:VAR], attr -> a
+										[EXP:VAR], attr -> i
+										[EXP:VAR], attr -> high
+										[EXP:VAR], attr -> i
+							[EXP:EXPRESSION]
+								[EXP:VAR], attr -> t
+								[EXP:VAR], attr -> a
+									[EXP:VAR], attr -> k
+							[EXP:EXPRESSION]
+								[EXP:VAR], attr -> a
+									[EXP:VAR], attr -> k
+								[EXP:VAR], attr -> a
+									[EXP:VAR], attr -> i
+							[EXP:EXPRESSION]
+								[EXP:VAR], attr -> a
+									[EXP:VAR], attr -> i
+								[EXP:VAR], attr -> t
+							[EXP:EXPRESSION]
+								[EXP:VAR], attr -> i
+								[EXP:ADDITIVE_EXPRESSION]
+									[EXP:VAR], attr -> i
+									[EXP:ADDOP], attr -> PLUS
+									[EXP:NUMBER], attr -> 1
+	[STMT:FUN_DECLAR], attr -> VOID,main
+		[EXP:PARAMS], attr -> VOID
+		[STMT:COMPOUND_STMT]
+			[STMT:LOCAL_DECLAR]
+				[STMT:VAR_DECLAR], attr -> INT,i
+			[STMT:STMT_LIST]
+				[EXP:EXPRESSION]
+					[EXP:VAR], attr -> i
+					[EXP:NUMBER], attr -> 0
+				[STMT:ITERATION_STMT]
+					[EXP:SIMPLE_EXPRESSION], attr -> LT
+						[EXP:VAR], attr -> i
+						[EXP:NUMBER], attr -> 10
+					[STMT:COMPOUND_STMT]
+						[STMT:STMT_LIST]
+							[EXP:EXPRESSION]
+								[EXP:VAR], attr -> x
+									[EXP:VAR], attr -> i
+								[EXP:CALL], attr -> input
+							[EXP:EXPRESSION]
+								[EXP:VAR], attr -> i
+								[EXP:ADDITIVE_EXPRESSION]
+									[EXP:VAR], attr -> i
+									[EXP:ADDOP], attr -> PLUS
+									[EXP:NUMBER], attr -> 1
+				[EXP:CALL], attr -> sort
+					[EXP:ARG_LIST]
+						[EXP:VAR], attr -> x
+						[EXP:NUMBER], attr -> 0
+						[EXP:NUMBER], attr -> 10
+				[EXP:EXPRESSION]
+					[EXP:VAR], attr -> i
+					[EXP:NUMBER], attr -> 0
+				[STMT:ITERATION_STMT]
+					[EXP:SIMPLE_EXPRESSION], attr -> LT
+						[EXP:VAR], attr -> i
+						[EXP:NUMBER], attr -> 10
+					[STMT:COMPOUND_STMT]
+						[STMT:STMT_LIST]
+							[EXP:CALL], attr -> output
+								[EXP:VAR], attr -> x
+									[EXP:VAR], attr -> i
+							[EXP:EXPRESSION]
+								[EXP:VAR], attr -> i
+								[EXP:ADDITIVE_EXPRESSION]
+									[EXP:VAR], attr -> i
+									[EXP:ADDOP], attr -> PLUS
+									[EXP:NUMBER], attr -> 1

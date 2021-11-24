@@ -85,7 +85,7 @@ TokenType getToken(ifstream& readFile, ofstream& outFile) {
 			if (scannerState == START) {
 				//When Scanner in START state
 
-				if (nextChar == ' ' || nextChar == '\t' || nextChar == '\n') {
+				if (nextChar == ' ' || nextChar == '\t' || nextChar == '\n' || nextChar == '\r') {
 					//When nextChar is white space (space, tab, newline)
 
 					scannerState = START;

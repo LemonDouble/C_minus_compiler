@@ -1,0 +1,45 @@
+[STMT:DECLARATION_LIST]
+	[STMT:FUN_DECLAR], attr -> INT,gcd
+		[EXP:PARAMS]
+			[EXP:PARAMS_LIST]
+				[EXP:PARAM], attr -> INT,u,NOTARRAY
+				[EXP:PARAM], attr -> INT,v,NOTARRAY
+		[STMT:COMPOUND_STMT]
+			[STMT:STMT_LIST]
+				[STMT:SELECTION_STMT]
+					[EXP:SIMPLE_EXPRESSION], attr -> EE
+						[EXP:VAR], attr -> v
+						[EXP:NUMBER], attr -> 0
+					[STMT:RETURN_STMT]
+						[EXP:VAR], attr -> u
+					[STMT:RETURN_STMT]
+						[EXP:CALL], attr -> gcd
+							[EXP:ARG_LIST]
+								[EXP:VAR], attr -> v
+								[EXP:ADDITIVE_EXPRESSION]
+									[EXP:VAR], attr -> u
+									[EXP:ADDOP], attr -> MINUS
+									[EXP:TERM]
+										[EXP:VAR], attr -> u
+										[EXP:MULOP], attr -> DIV
+										[EXP:VAR], attr -> v
+										[EXP:MULOP], attr -> MUL
+										[EXP:VAR], attr -> v
+	[STMT:FUN_DECLAR], attr -> VOID,main
+		[EXP:PARAMS], attr -> VOID
+		[STMT:COMPOUND_STMT]
+			[STMT:LOCAL_DECLAR]
+				[STMT:VAR_DECLAR], attr -> INT,x
+				[STMT:VAR_DECLAR], attr -> INT,y
+			[STMT:STMT_LIST]
+				[EXP:EXPRESSION]
+					[EXP:VAR], attr -> x
+					[EXP:CALL], attr -> input
+				[EXP:EXPRESSION]
+					[EXP:VAR], attr -> y
+					[EXP:CALL], attr -> input
+				[EXP:CALL], attr -> output
+					[EXP:CALL], attr -> gcd
+						[EXP:ARG_LIST]
+							[EXP:VAR], attr -> x
+							[EXP:VAR], attr -> y
